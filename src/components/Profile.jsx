@@ -1,15 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { DataField } from '../solid-components/index'
 
 const Head = styled.div`
   display: flex;
   flex-direction: column
   width: 100vw;
-  height: 300px;
+  height: 210px;
   background: rgb(41,73,240);
   background: linear-gradient(135deg, rgba(41,73,240,1) 0%, rgba(171,2,250,1) 100%);
-  color: white;
-  justify-content: flex-end;
   align-items: center
 `
 
@@ -22,7 +21,7 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
   margin: -100px 20px 0;
-  opacity: 0.98;
+  opacity: 0.97;
   padding: 20px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
 `
@@ -32,7 +31,7 @@ const Image = styled.img`
   height: 120px;
   border-radius: 50%;
   margin-top: -70px;
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.75) ;
   margin-bottom: 20px;
 `
 
@@ -53,8 +52,12 @@ export default class Profile extends React.PureComponent {
       <Head/>
       <Card>
         <Image src={this.props.image}/>
-        <Name>{this.props.name}</Name>
-        <City>{this.props.city}</City>
+        <Name>
+          <DataField data={this.props.user.name}/>
+        </Name>
+        <City>
+          <DataField data={this.props.user.birthday}/>
+        </City>
       </Card>
     </div>
   }
